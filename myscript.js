@@ -68,6 +68,19 @@ document.addEventListener('click', event => {
 			document.querySelector('.game-over').classList.add('visible');
 			document.querySelector('.game-over-text').textContent = 'Draw!';
 		};
+
+		game.winningStates.forEach(winningState => {
+			const xWins = winningState.every(state => game.getxState().includes(state))
+			const oWins = winningState.every(state => game.getoState().includes(state))
+			
+			if (xWins || oWins) {
+					document.querySelectorAll('.grid-cell').forEach(cell => cell.classList.add('disabled'))
+					document.querySelector('.game-over').classList.add('visible')
+					document.querySelector('.game-over-text').textContent = xWins
+							? 'X wins!'
+							: 'O wins!'
+			}
+		});
 	};
 });
 
