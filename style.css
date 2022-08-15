@@ -1,0 +1,111 @@
+:root {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body { 
+    display:flex; 
+    flex-direction:column; 
+    height: 100vh;
+    width: calc(100vw - (100vw - 100%));
+    margin: 0;
+    padding: 0;
+  }
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.gameboard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.grid-cell {
+    border: 1px solid #000;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.grid-cell:nth-child(-n + 3) {
+    border-top: none;
+}
+
+.grid-cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.grid-cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.grid-cell:nth-last-of-type(-n + 3) {
+    border-bottom: none;
+}
+
+.x::after {
+    content: '❌';
+}
+
+.o::after {
+    content: '⭕';
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.grid-cell:not(.disabled):hover {
+    background: #eee;
+}
+
+.game-over {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgb(0 0 0 / 50%) 0 0 0 9999px;
+}
+
+.game-over-text {
+    position: absolute;
+    top: -200px;
+    font-size: 60px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    transform: translateX(-30%);
+}
+
+.visible {
+    display: block;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    gap: 15px;
+    margin-top: auto;
+    padding: 10px
+}
+
+.fa-github {
+    color: black;
+    font-size: 24px;
+}
