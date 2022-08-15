@@ -1,7 +1,7 @@
 const game = (() => {
 		let xTurn = true;
-    const xState = [];
-    const oState = [];
+    let xState = [];
+    let oState = [];
 		const getxTurn = () => xTurn;
 		const getoState = () => oState;
 		const getxState = () => xState;
